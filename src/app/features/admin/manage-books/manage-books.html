@@ -1,0 +1,134 @@
+<div class="manage-books">
+
+<h1>Gestión de Libros</h1>
+
+<div class="book-form">
+
+<h2>Agregar Nuevo Libro</h2>
+
+<p class="success-message" *ngIf="successMessage">
+{{successMessage}}
+</p>
+
+<div class="grid">
+
+<div class="field">
+<label>Título</label>
+<input type="text" [(ngModel)]="titulo">
+</div>
+
+<div class="field">
+<label>Autor</label>
+<input type="text" [(ngModel)]="autor">
+</div>
+
+<div class="field">
+<label>ISBN</label>
+<input type="text" [(ngModel)]="isbn">
+</div>
+
+<div class="field">
+<label>Editorial</label>
+<input type="text" [(ngModel)]="editorial">
+</div>
+
+<div class="field">
+<label>Año de publicación</label>
+<input type="number" [(ngModel)]="anioPublicacion">
+</div>
+
+<div class="field">
+<label>Categoría</label>
+<input type="text" [(ngModel)]="categoria">
+</div>
+
+<div class="field">
+<label>Copias totales</label>
+<input type="number" [(ngModel)]="copiasTotales">
+</div>
+
+<div class="field">
+<label>Copias disponibles</label>
+<input type="number" [(ngModel)]="copiasDisponibles">
+</div>
+
+<div class="field full">
+
+<label>Portada del libro</label>
+
+<input
+type="file"
+accept="image/*"
+(change)="onFileSelected($event)"
+>
+
+</div>
+
+</div>
+
+<button class="btn-create" (click)="createBook()">
+Crear libro
+</button>
+
+</div>
+
+<div class="books-table">
+
+<h2>Catálogo de libros</h2>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Portada</th>
+<th>Título</th>
+<th>Autor</th>
+<th>Categoría</th>
+<th>Disponibles</th>
+<th>Acciones</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr *ngFor="let book of books">
+
+<td>
+
+<img
+class="cover-img"
+[src]="covers[book.id] ? covers[book.id] : '/no-cover.png'"
+>
+
+</td>
+
+<td>{{book.titulo}}</td>
+
+<td>{{book.autor}}</td>
+
+<td>{{book.categoria}}</td>
+
+<td>{{book.copiasDisponibles}}</td>
+
+<td>
+
+<button
+class="btn-delete"
+(click)="deleteBook(book.id)"
+>
+Eliminar
+</button>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>

@@ -1,0 +1,135 @@
+.header{
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:15px 40px;
+background:#155E75;
+color:white;
+font-family:Arial, Helvetica, sans-serif;
+
+}
+
+/* LEFT */
+
+.header-left{
+
+display:flex;
+align-items:center;
+gap:30px;
+
+}
+
+.logo{
+
+display:flex;
+align-items:center;
+gap:8px;
+font-weight:bold;
+font-size:18px;
+
+}
+
+/* NAV */
+
+nav{
+
+display:flex;
+gap:20px;
+
+}
+
+nav a{
+
+color:white;
+text-decoration:none;
+font-size:14px;
+font-weight:500;
+transition:0.2s;
+
+}
+
+nav a:hover{
+
+color:#06B6D4;
+
+}
+
+/* SEARCH */
+
+.header-center{
+
+flex:1;
+display:flex;
+justify-content:center;
+
+}
+
+.search-box{
+
+display:flex;
+background:white;
+border-radius:8px;
+overflow:hidden;
+width:350px;
+
+}
+
+.search-box input{
+
+border:none;
+padding:8px 10px;
+outline:none;
+width:100%;
+
+}
+
+.search-box button{
+
+border:none;
+background:#06B6D4;
+color:white;
+padding:0 15px;
+cursor:pointer;
+
+}
+
+.search-box button:hover{
+
+background:#0891B2;
+
+}
+
+/* RIGHT */
+
+.header-right{
+
+display:flex;
+align-items:center;
+gap:20px;
+
+}
+
+.user{
+
+font-size:14px;
+
+}
+
+.logout{
+
+background:#EF4444;
+border:none;
+color:white;
+padding:6px 12px;
+border-radius:6px;
+cursor:pointer;
+font-size:13px;
+
+}
+
+.logout:hover{
+
+background:#dc2626;
+
+}

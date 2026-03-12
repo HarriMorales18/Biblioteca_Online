@@ -1,0 +1,55 @@
+<div class="reservations">
+
+<h1>Mis reservas</h1>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Libro</th>
+<th>Fecha reserva</th>
+<th>Expira</th>
+<th>Estado</th>
+<th>Acción</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr *ngFor="let reservation of reservations">
+
+<td>{{reservation.bookTitulo}}</td>
+
+<td>{{reservation.fechaReserva | date}}</td>
+
+<td>{{reservation.fechaExpiracion | date}}</td>
+
+<td>
+
+<span class="status" [ngClass]="reservation.estado">
+{{reservation.estado}}
+</span>
+
+</td>
+
+<td>
+
+<button
+class="cancel-btn"
+*ngIf="reservation.estado==='PENDIENTE'"
+(click)="cancelReservation(reservation.id)"
+>
+Cancelar
+</button>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>

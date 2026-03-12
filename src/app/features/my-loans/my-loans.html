@@ -1,0 +1,40 @@
+<div class="loans">
+
+<h1>Mis préstamos</h1>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Libro</th>
+<th>Fecha préstamo</th>
+<th>Fecha devolución</th>
+<th>Estado</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr *ngFor="let loan of loans">
+
+<td>{{loan.bookTitulo}}</td>
+
+<td>{{loan.fechaPrestamo | date}}</td>
+
+<td>{{loan.fechaDevolucionEsperada | date}}</td>
+
+<td>
+  <span class="estado" [ngClass]="loan.estado">
+    {{loan.estado}}
+  </span>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>

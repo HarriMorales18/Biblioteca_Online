@@ -1,0 +1,41 @@
+<div class="catalog">
+
+<h1>Catálogo de libros</h1>
+
+<div class="books-grid">
+
+<div class="book-card" *ngFor="let book of books">
+
+<img
+[src]="covers[book.id] ? covers[book.id] : 'assets/no-cover.png'"
+class="cover"
+/>
+
+<h3>{{book.titulo}}</h3>
+
+<p class="author">{{book.autor}}</p>
+
+<p class="category">{{book.categoria}}</p>
+
+<p class="availability">
+
+Disponibles:
+<strong>{{book.copiasDisponibles}}</strong>
+
+</p>
+
+<button
+class="reserve-btn"
+(click)="reserveBook(book)"
+[disabled]="book.copiasDisponibles===0"
+>
+
+Reservar
+
+</button>
+
+</div>
+
+</div>
+
+</div>

@@ -1,0 +1,55 @@
+.register{
+
+  width:320px;
+  margin:auto;
+
+  margin-top:60px;
+
+  display:flex;
+  flex-direction:column;
+
+  gap:10px;
+
+}
+
+input, select{
+
+  padding:8px;
+
+  border-radius:6px;
+
+  border:1px solid #ccc;
+
+}
+
+button{
+
+  padding:10px;
+
+  border:none;
+
+  background:#00ABE4;
+
+  color:white;
+
+  border-radius:8px;
+
+  cursor:pointer;
+
+  font-weight:bold;
+
+}
+
+button:hover{
+
+  background:#008ec2;
+
+}
+
+.login-link{
+
+  text-align:center;
+
+  font-size:14px;
+
+}

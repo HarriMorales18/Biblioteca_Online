@@ -1,0 +1,58 @@
+<div class="admin-loans">
+
+<h1>Gestión de préstamos</h1>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Libro</th>
+<th>Usuario</th>
+<th>Fecha préstamo</th>
+<th>Fecha devolución</th>
+<th>Estado</th>
+<th>Acción</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr *ngFor="let loan of loans">
+
+<td>{{loan.bookTitulo}}</td>
+
+<td>{{loan.userName}}</td>
+
+<td>{{loan.fechaPrestamo | date}}</td>
+
+<td>{{loan.fechaDevolucionEsperada | date}}</td>
+
+<td>
+
+<span class="status" [ngClass]="loan.estado">
+{{loan.estado}}
+</span>
+
+</td>
+
+<td>
+
+<button
+class="return-btn"
+*ngIf="loan.estado === 'ACTIVO'"
+(click)="returnBook(loan.id)"
+>
+Devolver
+</button>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>

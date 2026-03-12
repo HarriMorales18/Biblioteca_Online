@@ -1,0 +1,103 @@
+.loans{
+
+background:#F1F5F9;
+min-height:100vh;
+padding:40px;
+font-family:Arial, Helvetica, sans-serif;
+
+}
+
+h1{
+
+color:#0B1724;
+margin-bottom:30px;
+font-size:28px;
+
+}
+
+/* CONTENEDOR */
+
+.loans table{
+
+width:100%;
+background:#FFFFFF;
+border-radius:12px;
+overflow:hidden;
+border-collapse:collapse;
+box-shadow:0 4px 12px rgba(0,0,0,0.05);
+
+}
+
+/* HEADER TABLA */
+
+thead{
+
+background:#155E75;
+color:white;
+
+}
+
+th{
+
+padding:14px;
+font-size:14px;
+text-align:left;
+font-weight:600;
+
+}
+
+/* FILAS */
+
+td{
+
+padding:14px;
+border-top:1px solid #E2E8F0;
+font-size:14px;
+color:#0B1724;
+
+}
+
+tbody tr{
+
+transition:0.2s;
+
+}
+
+tbody tr:hover{
+
+background:#F1F5F9;
+
+}
+
+/* ESTADOS */
+
+.estado{
+
+padding:4px 10px;
+border-radius:6px;
+font-size:12px;
+font-weight:600;
+display:inline-block;
+
+}
+
+.estado.ACTIVO{
+
+background:#DCFCE7;
+color:#16A34A;
+
+}
+
+.estado.DEVUELTO{
+
+background:#E2E8F0;
+color:#475569;
+
+}
+
+.estado.RETRASADO{
+
+background:#FEE2E2;
+color:#EF4444;
+
+}

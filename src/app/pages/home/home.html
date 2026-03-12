@@ -1,0 +1,75 @@
+<div class="home">
+
+  <!-- HEADER -->
+  <header class="topbar">
+
+    <div class="logo">
+      📚 <span>Biblioteca Online</span>
+    </div>
+
+    <div class="search">
+      <input
+        type="text"
+        placeholder="Buscar libros..."
+        [(ngModel)]="searchText"
+      />
+
+      <button (click)="search()">
+        Buscar
+      </button>
+    </div>
+
+    <div class="auth">
+
+      <a routerLink="/login" class="login">
+        Login
+      </a>
+
+      <a routerLink="/register" class="register">
+        Registro
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <h1>Bienvenido a la Biblioteca Online</h1>
+
+    <p>
+      Explora libros académicos, consulta disponibilidad,
+      reserva fácilmente y gestiona tus préstamos desde cualquier lugar.
+    </p>
+
+    <button (click)="goCatalog()" class="catalog-btn">
+      Explorar catálogo
+    </button>
+
+  </section>
+
+
+  <!-- LIBROS DESTACADOS -->
+  <section class="featured">
+
+    <h2>Libros Destacados</h2>
+
+    <div class="books">
+
+      <div class="book" *ngFor="let book of books">
+
+        <img [src]="book.cover" />
+
+        <h3>{{book.titulo}}</h3>
+
+        <p>{{book.autor}}</p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
