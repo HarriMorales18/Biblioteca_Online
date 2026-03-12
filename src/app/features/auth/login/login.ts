@@ -22,6 +22,10 @@ export class LoginComponent {
     private router: Router
   ) {}
 
+  goHome(){
+    this.router.navigate([''])
+  }
+
   login(){
 
   const credentials = {
@@ -50,7 +54,7 @@ export class LoginComponent {
 
         }else{
 
-          this.router.navigate(['/dashboard'])
+          this.router.navigate(['/catalog'])
 
         }
 

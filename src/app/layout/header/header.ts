@@ -1,43 +1,55 @@
 import { Component } from '@angular/core'
+import { Router } from '@angular/router'
 import { CommonModule } from '@angular/common'
-import { Router, RouterModule } from '@angular/router'
 import { FormsModule } from '@angular/forms'
-import { BookService } from '../../core/services/book'
+import { RouterModule } from '@angular/router'
 import { AuthService } from '../../core/services/auth'
 
 @Component({
-  selector:'app-header',
-  standalone:true,
-  imports:[CommonModule, RouterModule, FormsModule],
-  templateUrl:'./header.html',
-  styleUrl:'./header.css'
+	selector: 'app-header',
+	standalone: true,
+	imports: [CommonModule, FormsModule, RouterModule],
+	templateUrl: './header.html',
+	styleUrl: './header.css'
 })
-export class HeaderComponent {
+export class Header {
 
-searchText=''
+	searchText = ''
+	showMenu = false
 
-constructor(
-private router:Router,
-private bookService:BookService,
-public authService:AuthService
-){}
+	constructor(private router: Router, private auth: AuthService) {}
 
-search(){
+	search(){
+		if (this.searchText.trim()){
+			this.router.navigate(['/catalog'],{
+				queryParams: { search: this.searchText }
+			})
+		}
+	}
 
-if(!this.searchText.trim()) return
+	logout(){
+		this.auth.logout()
+	}
 
-this.router.navigate(['/catalog'],{
-queryParams:{search:this.searchText}
-})
+	isLogged(){
+		return this.auth.isLogged()
+	}
 
-this.searchText=''
+	getUser(){
+		return this.auth.user()
+	}
 
-}
+	toggleMenu(){
+		this.showMenu = !this.showMenu
+	}
 
-logout(){
+	closeMenu(){
+		this.showMenu = false
+	}
 
-this.authService.logout()
-
-}
+	closeMenuDelayed(event:Event){
+		// allow routerLink to process first, then close menu
+		setTimeout(()=> this.closeMenu(), 0)
+	}
 
 }

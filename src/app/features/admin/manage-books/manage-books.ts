@@ -130,11 +130,27 @@ export class ManageBooks implements OnInit{
 }
 
   deleteBook(id:string){
+    // Confirm deletion with the admin
+    if(!confirm('¿Seguro que deseas eliminar este libro? Esta acción no se puede deshacer.')){
+      return
+    }
 
-    this.bookService.deleteBook(id).subscribe(()=>{
-
-      this.loadBooks()
-
+    this.successMessage = ''
+    // call delete and handle backend errors (FK constraints, etc.)
+    this.bookService.deleteBook(id).subscribe({
+      next: ()=>{
+        this.successMessage = 'Libro eliminado correctamente'
+        this.loadBooks()
+      },
+      error: (err:any)=>{
+        console.error('Delete book error:', err)
+        const backendMsg = err?.error?.message || err?.message || 'Error al eliminar el libro'
+        if(backendMsg.toLowerCase().includes('constraint') || backendMsg.toLowerCase().includes('fk')){
+          alert('No se puede eliminar el libro: existen reservas o préstamos asociados. Elimina primero las reservas/préstamos relacionados.')
+        } else {
+          alert(backendMsg)
+        }
+      }
     })
 
   }

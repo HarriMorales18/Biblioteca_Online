@@ -18,7 +18,20 @@ constructor(private reservationService:ReservationService){}
 
 ngOnInit(){
 
-this.loadReservations()
+  // Check for navigation state containing a new reservation
+  const state: any = history.state || {}
+  if(state.newReservation){
+    // load existing reservations and then prepend the new one
+    this.loadReservations()
+    setTimeout(()=>{
+      const exists = this.reservations.find(r=>r.id === state.newReservation.id)
+      if(!exists){
+        this.reservations.unshift(state.newReservation)
+      }
+    }, 250)
+  } else {
+    this.loadReservations()
+  }
 
 }
 

@@ -25,6 +25,10 @@ export class RegisterComponent {
     private router: Router
   ) {}
 
+  goHome(){
+    this.router.navigate([''])
+  }
+
   register(){
 
   const data = {

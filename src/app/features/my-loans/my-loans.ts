@@ -18,7 +18,19 @@ constructor(private loanService:LoanService){}
 
 ngOnInit(){
 
-this.loadLoans()
+  // If navigation state contains a new loan, show it immediately
+  const state:any = history.state || {}
+  if(state.newLoan){
+    this.loadLoans()
+    setTimeout(()=>{
+      const exists = this.loans.find(l=>l.id === state.newLoan.id)
+      if(!exists){
+        this.loans.unshift(state.newLoan)
+      }
+    }, 250)
+  } else {
+    this.loadLoans()
+  }
 
 }
 
